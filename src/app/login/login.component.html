@@ -1,0 +1,12 @@
+<div>
+    <mat-toolbar color="primary" >
+        MEU TIME
+    </mat-toolbar>
+
+    <form onsubmit="">
+        
+        <label for="credential">Insira sua chave key</label>
+        <input (input)="status($event)" type="text" name="credential" id="credential">
+        <button [disabled]="!statusKey" (click)="teste($event)" mat-raised-button>Entrar</button>
+    </form>
+</div>
