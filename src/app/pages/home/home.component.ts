@@ -45,7 +45,6 @@ export class HomeComponent {
   }
 
   async buscar() {
-    console.log(this.selectForOptionCountrie, this.selectForOptionLeague)
     this.country.geCountryForName().subscribe({
       next: (res) => {
         this.listLeagues = Object.values(res.response);
