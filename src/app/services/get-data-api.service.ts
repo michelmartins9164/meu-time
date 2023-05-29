@@ -13,5 +13,6 @@ export class GetDataAPiService {
       .set('x-rapidapi-host', 'v3.football.api-sports.io')
       .set('x-rapidapi-key', `${data}`);
 
-    return from(this.http.get(url, { headers }));
+    return this.http.get(url, { headers });
+
   }}

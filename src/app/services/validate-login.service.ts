@@ -11,10 +11,10 @@ export class ValidateLoginService {
   constructor(private http: HttpClient) {
   }
    validateLogin(data: any): Observable<any> {
-/*     const headers = new HttpHeaders()
+const headers = new HttpHeaders()
       .set('x-rapidapi-host', 'v3.football.api-sports.io')
       .set('x-rapidapi-key', `${data}`);
-    return this.http.get<any>("https://v3.football.api-sports.io/status", {headers:headers}).pipe();  */
+    //return this.http.get<any>("https://v3.football.api-sports.io/status", {headers:headers}).pipe();
     return this.http.get("http://localhost:3000/status").pipe();
 }
 }

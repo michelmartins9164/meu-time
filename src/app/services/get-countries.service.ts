@@ -9,12 +9,14 @@ import { Countrie } from '../model/countrie';
 export class GetCountriesService {
   
   constructor(private http: HttpClient) { }
-  getCountries(data: any): Observable<Countrie>{
+  getCountries(data: string | null): Observable<any>{
     const headers = new HttpHeaders()
     .set('x-rapidapi-host', 'v3.football.api-sports.io')
     .set('x-rapidapi-key', `${data}`);
+  return this.http.get<Countrie>("https://v3.football.api-sports.io/countries", {headers}) 
+    
+ 
 
-    return this.http.get<Countrie>("https://v3.football.api-sports.io/countries", {headers: headers})
   }
 
 }

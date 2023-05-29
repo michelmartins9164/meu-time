@@ -1,0 +1,76 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-button mat-raised-button (click)="show1()">Gols</button>
+  <button mat-button mat-raised-button (click)="show2()">Tabela</button>
+  <button mat-button mat-raised-button (click)="show3()">Dados do time</button>
+  <button mat-button mat-raised-button (click)="show4()">Formação</button>
+</mat-toolbar>
+<div class="container">
+  <div class="goals" [ngStyle]="{ display: showGoals ? 'flex' : 'none' }">
+    <canvas #meuCanvas></canvas>
+  </div>
+
+  <ng-container *ngIf="show === 2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>CASA</th>
+          <th>FORA</th>
+          <th>TODOS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col">Partidas jogadas</th>
+          <td *ngFor="let item of playeds">{{ item }}</td>
+        </tr>
+        <tr scoop="">
+          <th scope="col">Vitórias</th>
+          <td *ngFor="let item of wins">{{ item }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Derrotas</th>
+          <td *ngFor="let item of loses">{{ item }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Empates</th>
+          <td *ngFor="let item of draws">{{ item }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-container *ngIf="show === 3">
+
+    <section >
+      <article *ngFor="let item of pageData">
+        <div class="content">
+          <h3>{{ item.player.nationality }}</h3>
+          <img src="{{ item.player.photo }}" alt="" />
+          <p>{{ item.player.name }}</p>
+          <p>Idade: {{ item.player.age }}</p>
+        </div>
+      </article>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="show === 4">    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Formação mais usada na temporada(ordem decrescente)</td>
+        <td *ngFor="let item of formation">{{ item.formation }}</td>
+      </tr>
+      <tr>
+        <td>Jogadas</td>
+        <td *ngFor="let item of formation">{{ item.played }}</td>
+      </tr>
+    </tbody>
+  </table></ng-container>
+</div>
