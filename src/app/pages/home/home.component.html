@@ -1,14 +1,14 @@
 <div class="container">
   <div class="content">
     <form *ngIf="!validateLeagues">
-      <select [(ngModel)]="selectForOptionCountrie" id="" name="selectForOptionCountrie">
+      <select required [(ngModel)]="selectForOptionCountrie" id="" name="selectForOptionCountrie">
         <option selected>Selecione um país</option>
         <option *ngFor="let item of listCountries" [value]="item.name">
           {{ item.name }}
         </option>
       </select>
 
-      <select [(ngModel)]="selectForOptionSeason" name="selectForOptionSeason" id="">
+      <select required [(ngModel)]="selectForOptionSeason" name="selectForOptionSeason" id="">
         <option *ngFor="let item of listSeasons" [value]="item">
           {{ item }}
         </option>
@@ -20,12 +20,12 @@
 
     <div *ngIf="validateLeagues">
       <form>
-        <select [(ngModel)]="idLeague" (change)="changeTeams()" name="idLeague" id="">
+        <select required [(ngModel)]="idLeague" (change)="changeTeams()" name="idLeague" id="">
           <option *ngFor="let item of listLeagues; let index = index" value="{{ item.league.id }}">
             {{ item.league.name }}
           </option>
         </select>
-        <select [(ngModel)]="selectForTeam" name="selectForTeam" id="">
+        <select required [(ngModel)]="selectForTeam" name="selectForTeam" id="">
           <option *ngFor="let item of listTeams" [value]="item.team.id">
             {{ item.team.name }}
           </option>
